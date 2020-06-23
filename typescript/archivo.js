@@ -120,12 +120,12 @@ console.log(nuevosColores2);
 // (a, b) => { return a + b }
 // (a, b) => { return {a: b} }
 // (a, b) => ({a: b})
-// function pelicula() {
-//   this.añoEstreno = 2000;
-//   setTimeout(function() {
-//     console.log(this.añoEstreno);
-//   }, 1500);
-// }
+function pelicula() {
+    this.añoEstreno = 2000;
+    setTimeout(function () {
+        console.log(this.añoEstreno);
+    }, 1500);
+}
 peliculaArrow();
 // function pelicula() {
 //   let self = this;
@@ -138,7 +138,8 @@ peliculaArrow();
 //   this.añoEstreno = 2000;
 //   setTimeout(function() {
 //     console.log(this.añoEstreno);
-//   }.bind({añoEstreno: 2020}), 1500);
+//   // }.bind({añoEstreno: 2020}), 1500);
+//   }.bind(this), 1500);
 // }
 function peliculaArrow() {
     var _this = this;
@@ -147,3 +148,100 @@ function peliculaArrow() {
         console.log(_this.añoEstreno);
     }, 1500);
 }
+function doble(n1) {
+    if (typeof (n1) === 'string') {
+        return n1 + n1;
+    }
+    else if (typeof (n1) === 'number') {
+        return n1 * 2;
+    }
+}
+console.log(doble('a'));
+console.log(doble(2));
+var peli = {
+    id: 12,
+    titulo: 'Los mercenarios',
+    genero: 'accion',
+    duracion: 113,
+    ganadoraOscar: function (gana) { return console.log(gana ? 'Ha ganado un oscar' : 'No ha ganado ningún oscar'); }
+};
+var DesarrolladorJavascript = /** @class */ (function () {
+    function DesarrolladorJavascript() {
+    }
+    DesarrolladorJavascript.prototype.trabaja = function () {
+        console.log('Desarrollo aplicaciones con JavaScript');
+    };
+    return DesarrolladorJavascript;
+}());
+var DesarrolladorTypescript = /** @class */ (function () {
+    function DesarrolladorTypescript() {
+    }
+    DesarrolladorTypescript.prototype.trabaja = function () {
+        console.log('Desarrollo aplicaciones con TypeScript');
+    };
+    return DesarrolladorTypescript;
+}());
+var desarrollador = new DesarrolladorJavascript();
+desarrollador.trabaja();
+// interface Mascota {
+//   nombre: string,
+//   tipo: string,
+//   sonido: string
+// }
+// let perro: Mascota = {
+//   nombre: '',
+//   tipo: '',
+//   sonido: '',
+// }
+// let gato: Mascota = {
+//   nombre: '',
+//   tipo: '',
+//   sonido: '',
+// }
+var Direction;
+(function (Direction) {
+    Direction[Direction["Up"] = 0] = "Up";
+    Direction[Direction["Down"] = 1] = "Down";
+    Direction[Direction["Left"] = 2] = "Left";
+    Direction[Direction["Right"] = 3] = "Right";
+})(Direction || (Direction = {}));
+;
+console.log(Direction.Up);
+function haciaDondeVoy(direccionEscogida) {
+    switch (direccionEscogida) {
+        case Direction.Up:
+            console.log('Va hacía arriba');
+            break;
+        case Direction.Down:
+            console.log('Va hacía abajo');
+            break;
+    }
+    // case 'down':
+    //   console.log('Va hacía abajo');
+    //   break;
+    // }
+    // case 'up':
+    //   console.log('Va hacía abajo');
+    //   break;
+    // }
+}
+haciaDondeVoy(Direction.Down);
+console.log(Direction.Down);
+// haciaDondeVoy('upp')
+var Languages;
+(function (Languages) {
+    Languages[Languages["Spanish"] = 2] = "Spanish";
+    Languages[Languages["French"] = 8] = "French";
+    Languages[Languages["English"] = 4] = "English";
+    Languages[Languages["Germany"] = 7] = "Germany";
+    Languages[Languages["Portugues"] = 8] = "Portugues";
+})(Languages || (Languages = {}));
+;
+function dameItemAleatorio(items) {
+    var posicion = Math.floor(Math.random() * items.length);
+    return items[posicion];
+}
+var itemNum = dameItemAleatorio([1, 3, 5, 2]);
+var itemFamiliaGot = dameItemAleatorio(['Stark', 'Lannister', 'Baratheon', 'Targaryen', 'Martell', 'Greyjoy']);
+console.log(itemNum);
+console.log(itemFamiliaGot);

@@ -163,12 +163,12 @@ console.log(nuevosColores2)
 // (a, b) => ({a: b})
 
 
-// function pelicula() {
-//   this.añoEstreno = 2000;
-//   setTimeout(function() {
-//     console.log(this.añoEstreno);
-//   }, 1500);
-// }
+function pelicula() {
+  this.añoEstreno = 2000;
+  setTimeout(function() {
+    console.log(this.añoEstreno);
+  }, 1500);
+}
 
 peliculaArrow()
 
@@ -185,7 +185,8 @@ peliculaArrow()
 //   this.añoEstreno = 2000;
 //   setTimeout(function() {
 //     console.log(this.añoEstreno);
-//   }.bind({añoEstreno: 2020}), 1500);
+//   // }.bind({añoEstreno: 2020}), 1500);
+//   }.bind(this), 1500);
 // }
 
 function peliculaArrow() {
@@ -194,3 +195,123 @@ function peliculaArrow() {
     console.log(this.añoEstreno);
   }, 1500);
 }
+
+// Sobrecarga
+
+// function doble(n1: number): number {
+//   return 2 * n1
+// }
+
+// function doble(n1: string): string {Ñ
+//   return n1 + n1;
+// }
+
+
+function doble(n1: number): number;
+function doble(n1: string): string;
+
+function doble(n1: string | number): string | number {
+  if (typeof(n1) === 'string') {
+    return n1 + n1
+  } else if (typeof(n1) === 'number') {
+    return n1 * 2
+  }
+}
+
+console.log(doble('a'))
+console.log(doble(2))
+
+
+
+
+interface Pelicula {
+  id: number,
+  titulo: string,
+  genero: string,
+  duracion?: number, // Parámetro opcional
+  ganadoraOscar?: (gana: boolean) => void // Los métodos sin implementar
+}
+
+let peli: Pelicula = {
+  id: 12,
+titulo: 'Los mercenarios',
+genero: 'accion',
+duracion: 113,
+ganadoraOscar: (gana: boolean) => console.log(gana ? 'Ha ganado un oscar' : 'No ha ganado ningún oscar')
+}
+
+interface Desarrollador {
+  trabaja: () => void;
+}
+class DesarrolladorJavascript implements Desarrollador {
+  trabaja() {
+    console.log('Desarrollo aplicaciones con JavaScript');
+  }
+}
+class DesarrolladorTypescript implements Desarrollador {
+  trabaja() {
+    console.log('Desarrollo aplicaciones con TypeScript');
+  }
+}
+let desarrollador: Desarrollador = new DesarrolladorJavascript();
+desarrollador.trabaja();
+
+
+
+// interface Mascota {
+//   nombre: string,
+//   tipo: string,
+//   sonido: string
+// }
+
+// let perro: Mascota = {
+//   nombre: '',
+//   tipo: '',
+//   sonido: '',
+// }
+
+// let gato: Mascota = {
+//   nombre: '',
+//   tipo: '',
+//   sonido: '',
+// }
+
+
+
+
+enum Direction { Up, Down, Left, Right };
+console.log(Direction.Up);
+
+function haciaDondeVoy(direccionEscogida) {
+  switch(direccionEscogida) {
+    case Direction.Up:
+      console.log('Va hacía arriba');
+      break;
+    case Direction.Down:
+      console.log('Va hacía abajo');
+      break;
+    }
+    // case 'down':
+    //   console.log('Va hacía abajo');
+    //   break;
+    // }
+    // case 'up':
+    //   console.log('Va hacía abajo');
+    //   break;
+    // }
+}
+
+haciaDondeVoy(Direction.Down)
+console.log(Direction.Down)
+// haciaDondeVoy('upp')
+
+enum Languages { Spanish = 2, French = 8, English = 4, Germany = 7, Portugues };
+
+
+function dameItemAleatorio<T>(items: Array<T>): T {
+  let posicion = Math.floor(Math.random() * items.length); return items[posicion];
+}
+let itemNum = dameItemAleatorio<number>([1, 3, 5, 2]);
+let itemFamiliaGot = dameItemAleatorio<string>(['Stark', 'Lannister', 'Baratheon', 'Targaryen', 'Martell', 'Greyjoy']);
+console.log(itemNum)
+console.log(itemFamiliaGot)
