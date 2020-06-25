@@ -9,14 +9,19 @@ export default class ListasYFormularios extends Component {
       listaSugus: [
         { id: 1, sabor: 'limón', color: 'yellow' },
         { id: 2, sabor: 'naranja', color: 'orange' },
-      ]
+        { id: 3, sabor: 'naranja', color: 'orange' },
+      ],
+      otraProp: false,
+      otraMas: []
     }
   }
 
   render() {
     return (
       <div>
-        <ListaDatos datos={this.state.listaSugus} />
+        <ListaDatos listaSugus={this.state.listaSugus} />
+        {/* <ListaDatos miEstado={this.state} /> */}
+        {/* <ListaDatos {...this.state} /> */}
         <Formulario />
       </div>
     )

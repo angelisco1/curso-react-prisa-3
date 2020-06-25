@@ -1,15 +1,18 @@
 import React from 'react'
 
-const Sugus = (props) => {
+// const Sugus = ({ item }) => {
+const Sugus = ({ color, sabor }) => {
   const styles = {
     width: '200px',
     height: '200px',
-    backgroundColor: props.color
+    // backgroundColor: item.color
+    backgroundColor: color
   }
 
   return (
     <div style={styles}>
-      {props.sabor}
+      {/* {item.sabor} */}
+      {sabor}
     </div>
   )
 }
