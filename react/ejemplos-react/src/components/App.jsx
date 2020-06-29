@@ -3,6 +3,7 @@ import TiposDeComponentes from './tipos-de-componentes/TiposDeComponentes'
 import ListasYFormularios from './listas-y-formularios/ListasYFormularios';
 import CicloDeVida from './ciclo-de-vida/CicloDeVida';
 import AjaxYNovedades from './ajax-y-novedades/AjaxYNovedades';
+import AppRouting from './routing/AppRouting';
 
 export default class App extends Component {
   render() {
@@ -18,7 +19,9 @@ export default class App extends Component {
         {/* <TiposDeComponentes /> */}
         {/* <ListasYFormularios /> */}
         {/* <CicloDeVida /> */}
-        <AjaxYNovedades />
+        {/* <AjaxYNovedades /> */}
+        
+        <AppRouting />
       </div>
     )
   }
