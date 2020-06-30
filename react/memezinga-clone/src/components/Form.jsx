@@ -10,6 +10,17 @@ export default class Form extends Component {
   handleSubmit(event) {
     event.preventDefault();
     console.log('Guardar los datos')
+
+
+    // POST -> https://ejemplos-dc1c1.firebaseio.com/memes/tu-nombre.json
+    // const miMeme = {
+    //   textoArriba: textoArriba,
+    //   textoAbajo: textoAbajo,
+    //   color: color,
+    //   imgUrl: imgUrl,
+    // }
+    // {body: JSON.stringify(miMeme)}
+
   }
 
   render() {
