@@ -4,6 +4,7 @@ import ListasYFormularios from './listas-y-formularios/ListasYFormularios';
 import CicloDeVida from './ciclo-de-vida/CicloDeVida';
 import AjaxYNovedades from './ajax-y-novedades/AjaxYNovedades';
 import AppRouting from './routing/AppRouting';
+import Hooks from './hooks/Hooks';
 
 export default class App extends Component {
   render() {
@@ -20,8 +21,8 @@ export default class App extends Component {
         {/* <ListasYFormularios /> */}
         {/* <CicloDeVida /> */}
         {/* <AjaxYNovedades /> */}
-        
-        <AppRouting />
+        {/* <AppRouting /> */}
+        <Hooks />
       </div>
     )
   }

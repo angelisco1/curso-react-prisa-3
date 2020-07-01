@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 
-export default class Form extends Component {
+class Form extends Component {
   constructor(props) {
     super(props)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -10,16 +11,30 @@ export default class Form extends Component {
   handleSubmit(event) {
     event.preventDefault();
     console.log('Guardar los datos')
+    const { textoArriba, textoAbajo, color, imgUrl } = this.props;
 
-
-    // POST -> https://ejemplos-dc1c1.firebaseio.com/memes/tu-nombre.json
-    // const miMeme = {
+    // const meme = {
     //   textoArriba: textoArriba,
     //   textoAbajo: textoAbajo,
     //   color: color,
     //   imgUrl: imgUrl,
     // }
-    // {body: JSON.stringify(miMeme)}
+    const meme = {
+      textoArriba,
+      textoAbajo,
+      color,
+      imgUrl,
+    }
+
+    fetch('https://ejemplos-dc1c1.firebaseio.com/memes/angel.json', {
+      method: 'POST',
+      body: JSON.stringify(meme)
+    })
+      .then(resp => resp.json())
+      .then(datos => {
+        console.log(datos)
+        this.props.history.push('/')
+      })
 
   }
 
@@ -65,3 +80,5 @@ export default class Form extends Component {
     )
   }
 }
+
+export default withRouter(Form)
