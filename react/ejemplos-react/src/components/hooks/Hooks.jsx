@@ -4,6 +4,7 @@ import Traducciones from './Traducciones'
 import InfoPersona from './InfoPersona'
 import AudioPlayer from './AudioPlayer'
 import Caja from './Caja'
+import Form from './Form'
 
 export const ctxLang = React.createContext('es')
 
@@ -43,8 +44,9 @@ const Hooks = () => {
       </ctxLang.Provider>
       <InfoPersona />
       <AudioPlayer />
-
       <Caja />
+
+      <Form />
     </div>
   )
 }
